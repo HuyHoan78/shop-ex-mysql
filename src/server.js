@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const loaiSPRoute = require('./router/loaiSPRoute');
+const sanphamRoute = require('./router/sanphamRoute')
+const khachhangRoute = require('./router/khachhangRoute')
+const donhangRoute = require('./router/donhangRoute')
 
 const app = express();
 const port = 3000;
@@ -12,10 +15,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-    res.send('tao là hoàn gà gà gà  ');
+    res.send('kính chào quý khách  ');
 });
 
-app.use('/api', loaiSPRoute)
+app.use('/api', loaiSPRoute, sanphamRoute, khachhangRoute, donhangRoute);
 
 // app.use('/api');
 
